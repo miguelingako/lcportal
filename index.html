@@ -1,172 +1,950 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <hea>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+
+    <style>
         
-        <style>
-            body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+
+/* Other styling for container, posts, footer, etc., omitted for brevity *//* Basic Reset */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
-#search-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
-#search-bar {
-    width: calc(100% - 110px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+
+/* Header Styling */
+header {
+    background: #4CAF50;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
 }
-button {
-    padding: 8px 18px;
-    border: none;
-    border-radius: 4px;
-    background-color: #1fb547;
+
+
+/* Banner Section */
+.banner {
+    background: url('banner.jpg') no-repeat center center/cover;
     color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+
+/* Body Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    display: flex;
+}
+
+/* Events Section */
+.events {
+    flex: 100%;
+    background: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+/* Post Container */
+.posts-container {
+margin-top: 5px;
+    flex: 75%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+   
+}
+
+.post {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    display: block;
+    border: 0px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Smooth shadow */
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            padding: 15px;
+            overflow: hidden;
+}
+.post img {
+            width: 100%;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+
+/* Sidebar */
+.sidebar {
+    flex: 25%;
+    background:whitesmoke ;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Footer Section */
+footer {
+  background-color: #4CAF50;
+  color: #f0f0f0;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #f0f0f0;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  line-height: 1.8;
+}
+
+.footer-section a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #1e90ff;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.social-media li {
+  margin: 0 10px;
+}
+
+.posts{
+    margin: auto;
+    margin-top: 10px;
+    padding:10px;
+    
+}
+.posts img{
+    width:40%;
+    
+}
+
+
+.hamburger-menu-container {
+  position: relative;
+  background-color: green;
+  padding: 1px;
+  border-radius: 4px;
+}
+
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Ensure visibility of each bar */
+.bar {
+  height: 4px;
+  width: 100%; /* Full width for visibility */
+  background-color: white; /* Make the bars visible */
+  border-radius: 2px;
+  transition: 0.4s ease;
+}
+
+/* Menu styling */
+.menu-content {
+  position: absolute;
+  top: 50px;
+  left: -230px;
+  width: 210px;
+  height: a;
+  background-color: white;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.4s ease;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: 30 px 30px rgba(0, 0, 0, 0.1);
+  
+  
+}
+
+.menu-content a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: green;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.menu-content a:hover {
+  background-color: greenyellow;
+}
+
+/* Hamburger transformation for active state */
+.change .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.change .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.change .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+/* Menu slide in */
+.menu-open .menu-content {
+  left: 0;
+}
+
+
+
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+}
+
+.fb-button {
+    padding: 5px 10px;
     font-size: 16px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-button:hover {
-    background-color:#1fb547;
+
+/* Follow Button */
+.follow-button {
+    background-color: #1877f2;
+    color: white;
 }
-#search-results {
+
+.follow-button:hover {
+    background-color: #166fe5;
+}
+
+/* Visit Button */
+.visit-button {
+    background-color: #42b72a;
+    color: white;
+}
+
+.visit-button:hover {
+    background-color: #36a420;
+}
+
+
+
+
+.login-container {
+    background-color: white ;
+    padding: 3px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    height: 335px;
+    
+}
+
+.logo {
+    width: 50px;
+    margin-bottom: 0px;
+    display: block;
+    margin: auto;
     margin-top: 20px;
 }
-.result-item {
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #fff;
-    border: 1px solid #ddd;
+
+input[type="text"], input[type="password"] {
+    width: calc(80% - 20px);
+    padding: 10px;
+    margin-bottom: 3%;
+    border: 2px solid green;
+    border-radius: 5px;
+    
+}
+
+button {
+    width: 50%;
+    padding: 3% 1%;
+    background-color: Green;
+    color: white;
+    border: none;
     border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.result-item h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
-.result-item p {
-    margin: 5px 0 0;
-    color: #666;
-}
-.result-item a {
-    text-decoration: none;
-    color: #007BFF;
-}
-.result-item a:hover {
-    text-decoration: underline;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    
 }
 
- header {
-    
-    padding:13% 4%;
-    background-color:#1fb547;
-    border:none;
-    border-radius:5%
-    
-    
+button:hover {
+    background-color: Green;
 }
-h1, h2{
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/* button expand */
+
+.collapsible {
+    
+    color: white;
+    cursor: pointer;
+    padding: 18px;
     text-align: center;
-    color:white;
-    
+    border: none;
+    outline: none;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible:hover {
     
 }
 
-footer {
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background-color:#4CAF50 ;
+    padding: 0 18px;
+}
+
+/* button 2 */
+
+.button {
+    
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;   
+    transition: background-color 0.3s ease;
     text-align: center;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 0 0 10px 10px;
-    margin-top: 2rem;
+}
+
+.button:hover {
+    background-color: ;#3c7d2a
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.modal-content {
+background-color: green;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-30px); /* Start slightly above */
+    opacity: 0; /* Start transparent */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal.show {
+    display: flex; /* Show the modal */
+    opacity: 1; /* Fully visible */
+}
+
+.modal-content.show {
+    transform: translateY(0); /* Move to original position */
+    opacity: 1; /* Fully visible */
+}
+.slider {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+    display: flex;
+    width: 100%; /* 4 images * 100% */
+    animation: slide 16s infinite;
+}
+
+.slide {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Animation to slide images */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
 }
 
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-  
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
-section {
-    
-    padding:40% 30%;
-    background-color:#f8f9fa;
-    border:none;
-    border-radius:5%;
-    margin-top: 1rem;
-    text-align: center;
-    
 
-        </style>
-    </head>
-  
-  
-        
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#searchBar {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 4px solid #4CAF50;
+    border-radius: 30px;
+    outline: none;
+}
+
+.search-button {   
+    font-size: 14px;
+    cursor: pointer;
+    color: white;   
+    border-left: none;
+    border-radius: 5px;
+    margin: auto;
     
+}
+
+#content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Content container is hidden by default */
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.item:hover {
     
-    
-    
-    
-    <title>STUDENTS GRADE CHECK</title>
-    
-    
-    
-    <header>
-        
-        <img src="https://i.imghippo.com/files/NX3lQ1725328583.png" alt="" class="center">  
-    
-    <h1> LEYTE COLLEGES </h1>
-    <h2> Student Portal</h2>
-    </header>
-    
-    <br>
-    
-    <p style="text-align:center"> Enter student ID number.</p>
-    
-  
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.back-button {
+            position: fixed; /* Keeps the button fixed at the top */
+            top: 10px; /* Position it 10px from the top */
+            left: 10px; /* Position it 10px from the left */
+            background-color: #007BFF; /* Button background color */
+            color: white; /* Text color */
+            padding: 10px 20px; /* Add some padding */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            z-index: 1000; /* Ensure it stays on top of the content */
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+
+    </style>
 </head>
 <body>
-    <div id="search-container">
-        <input type="text" id="search-bar" placeholder="Student ID no.">
-        <button onclick="search()">Enter</button>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <!-- Collapsible Menu HTML -->
+        <div class="hamburger-menu-container">
+  <div class="hamburger-btn" id="menuToggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+ 
+  <div class="menu-content">      
+<hr>
+    <a href="academics.html">Academics</a>
+    <hr>
+    <a href="admission.html">Admission</a>
+    <hr>
+    <a href="aboutus.html">Leyte Colleges</a>
+    <hr>
+    <a href="https://www.facebook.com/LeyteTimesLC/">Leyte Times</a>
+    <hr>
+    <a href="#help"> Help Desk</a>
+    <hr>
+        <div class="button"><p style="font-size:18px;color:Green;padding:10px;">Log in</p></div>
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button"><img src="img/backbutton.png" style="width:40px; margin-bottom:10px" alt=""></img></span>
+        
+        <!-- LOGIN -->
+       <div class="login-container">
+        <img src="img/schoollogo.png" alt="" class="logo">
+        <form id="login-form">
+            <h3 style="margin-bottom:10%; color:black; margin-top:4%">Login to Student Portal</h3>
+                       
+            <label for="student-id"></label>
+            <input type="text" id="student-id" name="student-id" placeholder="Student ID number" required>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="button" onclick="login()">Login</button>
+            <br>
+            <p id="login-error" class="error-message"></p>
+        </form>
     </div>
-    <div id="search-results"></div>
+    
+    
+    <script src="main-js/passwords.js"></script>    
+    </div>
+     
+     
+    </div>
+</div>
 
-    <script src="search.js"></script>
+
+
+    
+  
+    </header>
+    
    
-   
-   <br>
-   <p> <small>SAMPLE 1: 2019-14411-1 <br>
-   SAMPLE 2: 2019-14411-2</sample></p>
-   
-   
-    <section>
-         <body>
-            
-             NO EVENTS AVAILABLE!
-             
-         </body>    
+
+    </header>
+
+   <hr>
+    
+        <img src="img/slide1.jpg" style="width:100%" alt="">
     </section>
-    
-    
-    <footer>
-            <p>LEYTE COLLEGES  &copy; 2024 Student Portal <br> <small> Dev.: Miguel Von Morden</small></p>
+<br>
+<br>
+  
+
+    <!-- Body Section -->
+    <div class="container">
+        <!-- Events Section -->
+        <section class="events">
+            <h2>Events</h2>
+            <p>Join us for various events happening this semester!</p>
+        </section>
+        
+       
+        <!-- Post Container with Images -->
+        <div class="posts-container">
             
-        </footer>
+            <div class="post">
+                <h1>Anyag Sinirangan Cultural and Performing Arts—Terpsichore Oath-Taking Ceremony</h1>
+                <br>
+                <img src="https://scontent.fmnl9-6.fna.fbcdn.net/v/t39.30808-6/462156319_515355624586692_544782852787474701_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH5QxtKSQX73V7_EFDTyRJUb7X9M9T4Getvtf0z1PgZ6746bTQAPtYLOj6AhJEDdDD2xfydDaLK-XAy8b-TrAlE&_nc_ohc=WJQed4BGm1gQ7kNvgHK8mJL&_nc_ht=scontent.fmnl9-6.fna&_nc_gid=A4wt7f5jb7C9AkMdzFWff67&oh=00_AYDsxcHM-Jmhiu11Dlwybocc7rAFFSWSfnzRLuls5RfGQw&oe=6709CF3E" alt="Post 1 Image">
+ <br>   
+ <br>            
+                <p>Anyag Sinirangan Cultural and Performing Arts—Terpsichore Oath-Taking Ceremony <b>"𝖨𝗍'𝗌 𝗇𝗈𝗍 𝗍𝗁𝖾 𝗈𝖺𝗍𝗁 𝗍𝗁𝖺𝗍 𝗆𝖺𝗄𝖾𝗌 𝗎𝗌 𝖻𝖾𝗅𝗂𝖾𝗏𝖾 𝗍𝗁𝖾 𝗆𝖺𝗇, 𝖻𝗎𝗍 𝗍𝗁𝖾 𝗆𝖺𝗇 𝗍𝗁𝖾 𝗈𝖺𝗍𝗁"</b>
+                <br>
+                <br>
+- 𝗔𝗲𝘀𝗰𝗵𝘆𝗹𝘂𝘀
+<br>
+<br>
+The Oath-Taking Ceremony of the newly elected officers of Anyag Sinirangan Cultural and Performing Arts—Terpsichore took place at Leyte Colleges San Jose Campus on October 5, 2024, solemnly swearing their commitment to the new era of leadership.
+<br>
+<br>
+With pride and dedication, each member pledged to honor and commit to promoting rich cultural heritage through their artistic expressions. This moment marked a new chapter in their journey, celebrating the vibrance of Anyag Sinirangan—Terpsichore and the promise of unity and creativity.
+<br>
+<br>
+Similarly, following their signing of the Pledge of Commitment, the Anyag Sinirangan Cultural and Performing Arts—Terpsichore exhibited an amusing intermission number.</p>
+            </div>
+            <div class="post">
+                <h1>Teachers’ Day</h1>
+                <br>
+                <img src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t39.30808-6/462234782_957960373014227_3807287873431621987_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG-jK6eL5xa-LL3k9sVQv0wDQAsJmtaQgENACwma1pCAQL-8H0DvrI1xtSYxk9ssMNs5mNslms1ZkIWuPt6FA0F&_nc_ohc=UljaL9g9K4sQ7kNvgHUKKwA&_nc_ht=scontent.fmnl9-3.fna&_nc_gid=ALaS6nhbGGXs0qVL_WUNRnk&oh=00_AYAeacn0va-PbzJeUrn1tGl8wUOhON_t8_pEw2s32lagTA&oe=6709D5D5" alt="Post 2 Image">
+                <br>
+                <br>
+                <p>
+For this year's Teachers’ Day, the Leyte Colleges Supreme Student Council (SSC) is proud and excited to have this wonderful opportunity to express their great love and care for their hardworking, passionate and  dedicated instructors. 
+<br>
+<br>
+In partnership with the Tacloban City Community Livelihood Extension Program (CLEP), and Student Affairs and Services Office (SASO), the SSC will be facilitating an event the," Instructors' Pamper Session" where  manicure, massage and haircut services ARE FREE. This will be held on the 11th of October 2024 at the Leyte Colleges Paterno Campus, Room 6 & 7. 
+<br>
+<br>
+This event is a gift from all LCians to you. We thank you from the bottom of our hearts for your guidance and support.
+<br>
+<br>
+<b> We hope to see you there! </b>>
+            </div>
+            <div class="post">
+                 <h1>Leyte Colleges conducts First Friday Mass </h1>
+                 <br>
+                <img src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t39.30808-6/461999797_533055566140474_4939272197857027677_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeES2OB6WF5xE28U2RTIHwK1eWBk157vj1x5YGTXnu-PXILKbhxrGp8DbiQhh8NbjgAek1bsJPR5ULLChHM-iAIW&_nc_ohc=6pb-YvciHnsQ7kNvgEomMQF&_nc_ht=scontent.fmnl9-2.fna&_nc_gid=AECjpJ_0hImZy9fRl9Iz9nW&oh=00_AYDd-cvZsGro_I93QqFCRGJoApM4pvIwjbdX_Vu11rJW5Q&oe=6709D58B" alt="Post 3 Image">
+               <br>
+               <br>
+                <p>
+
+Leyte Colleges held the First Friday Mass Celebration organized by the College of Education today, October 4, 2024. it was presided over by Parish Priest Fr. Hercolano Tabada at the LC Paterno campus.
+<br>
+<br>
+The said event was attended by faculty, staff and students along with the Anyag Sinirangan Cultural and Performing Arts Chorale.
+<br>
+<br>
+Faculty, staff, and students gathered the school community for a moment of devotion and divinity.
+<br>
+<br>
+On the other hand, the COE announced that there will be an upcoming United Nations Month Cebration with series of activities on October 24, 2024 at Leyte Colleges Paterno Campus.
+
+</p>
+            </div>
+        </div>
+
+        <!-- Right Sidebar Section -->
+        <aside class="sidebar">
+            
+                
+           
+             <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search">
+        <img src="img/search.png" id="searchButton" style="width:42px; margin-left:14px;margin-bottom:9px;" alt="">
+    </div>
+
+    <div id="content">
+        <!-- Content will be dynamically populated based on search query -->
+    </div>
+            
+       
+            
+            <h2 style="padding:6px 9px;color:white; background-color:#4CAF50; border-radius:1px;margin-bottom:2px">Quik Links </h2>
+            
+
+            <div class="post-container">
+           
+            
+            <div class="post">
+                <a href="index.html"><img src="img/portal.jpg" alt="Post 2 Image">
+                </a>
+            </div>
+            
+            <div class="post">
+             
+               <br>
+    <div class="slider">
+        <div class="slides">
+       <!-- Image slide -->
+       
+            <div class="slide"><a href="academics.html"><img src="img/bscrim.jpg" alt="Image 1"></a></div>
+            
+            <div class="slide"><a href="academics.html"><img src="img/bspolsci.jpg" alt="Image 2"></a></div>
+            <div class="slide"><img src="img/bsba.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="img/bsoa.jpg" alt="Image 4"></div>
+             <div class="slide"><img src="img/beed.jpg" alt="Image 5">
+                     
+        </div>    
+     </div> 
+   </div>
+
+            </div>
+            
+            
+              
+       <div class="post">
+           
+          <a href="olform.html"> <img src="img/eform.jpgform.jpg" alt=""> </a>
+           
+       </div>
+        
+            
+            <div class="post">
+                <img src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t39.30808-6/462234782_957960373014227_3807287873431621987_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG-jK6eL5xa-LL3k9sVQv0wDQAsJmtaQgENACwma1pCAQL-8H0DvrI1xtSYxk9ssMNs5mNslms1ZkIWuPt6FA0F&_nc_ohc=UljaL9g9K4sQ7kNvgHUKKwA&_nc_ht=scontent.fmnl9-3.fna&_nc_gid=ALaS6nhbGGXs0qVL_WUNRnk&oh=00_AYAeacn0va-PbzJeUrn1tGl8wUOhON_t8_pEw2s32lagTA&oe=6709D5D5" alt="Post 2 Image">
+               
+            </div>
+            
+             <h2 style="padding:6px 9px;color:white; background-color:#4CAF50; border-radius:1px;margin-bottom:2px">Leyte Times </h2>
+             
+            <div class="post">
+               <a href="https://www.facebook.com/LeyteTimesLC/"><img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/459904824_518382850941079_4634718772953176764_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGQVh3376aBFA3PAqVnd0dsqN7lUsd0uuSo3uVSx3S65BX2RqbGkvuDz9X2oWxymIXinK5XYtCWjzLfr3G9askv&_nc_ohc=i-6Te6Sg4PkQ7kNvgHso1R7&_nc_ht=scontent.fceb2-1.fna&_nc_gid=A8GAeWGK1f74NmJVfsOarJU&oh=00_AYDJvPLHKxDFjrpppdYhXybeAcdq8qbH98Do0h8n7Vp37A&oe=6709DF21" alt="Post 2 Image"></a>
+                
+                <div class="btn-container">
+        <button class="fb-button follow-button">Follow</button>
+        <button class="fb-button visit-button">Visit</button>
+    </div>
+
+            </div>
+            
+            <div class="post">
+                
+                <div class="slider">
+        <div class="slides">
+            <!-- Image slide -->
+            <div class="slide"><img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/462142511_515355741253347_538995372493630422_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHFIGVZaCmdQsrdGGiY4C90ucCdNYuSO0S5wJ01i5I7RLLeAPAx5-pg300j5xyLhWLhInOHyxzklzTTSikYID1G&_nc_ohc=xJrE_LwwRH8Q7kNvgF4Yy9G&_nc_ht=scontent.fceb2-2.fna&_nc_gid=AXfqCzKZJtFGb6vOVhO0w68&oh=00_AYB8k9_Ax6GpVCq9Xh4bcGGjfPc_zMGYlb4cjd9dEBkXmw&oe=6709F61F" alt="Image 1"></div>
+            <div class="slide"><img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/462060537_516186831170238_4889876721479041801_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGa6A-5n9ItnIlIHmduUS3kThDKEA6_cXdOEMoQDr9xdyTENX6ZHA4d9o5uR43fclh4nvdabaeqv8VAf-vfx9Ss&_nc_ohc=K_iZsKSUUUUQ7kNvgGYCVO8&_nc_ht=scontent.fceb2-1.fna&_nc_gid=Aqik4-NKFb_KTW-DHSobgHe&oh=00_AYBhU0oBK62Jk9oh-qsuzSBqTfQ5g3xDr5uI4ZYUbXkMog&oe=6709EB7D" alt="Image 2"></div>
+            <div class="slide"><img src="https://scontent.fceb6-1.fna.fbcdn.net/v/t39.30808-6/462205354_534288622683835_4247019098718368942_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFpdePhhFq2BDUPDIECN5fGfoT3XAGxenJ-hPdcAbF6ctIfVfYtkvAQdYSCHLX8pPEqu_dPK_eN2M1SS1iCBcff&_nc_ohc=ODz6CanNubgQ7kNvgH4aLHS&_nc_ht=scontent.fceb6-1.fna&_nc_gid=An8k11QzRA2T-xNzyDbPYtC&oh=00_AYDjM7HTdzICN0-1nvAq684WifRxnosixMvTfp9FekPJyQ&oe=6709C81A" alt="Image 3"></div>
+            <div class="slide"><img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/461998067_533055442807153_2399291974528298476_n.jpg?stp=dst-jpg_p526x395&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG7jT7uwhBde7GZ-q79jX7TAnVBtVPY-D8CdUG1U9j4P32Kk7n2qjKhCKRdqdTdKq9YnfB8zLzYCR15A3YVtuX1&_nc_ohc=oX2exs7Ztg4Q7kNvgEo2axY&_nc_ht=scontent.fceb2-1.fna&_nc_gid=AdT7TGjSOl-7ELcktWcRLZK&oh=00_AYCq5oabxB5h5Kcvh2q2ShUyBe4I-R7Ud5Twnm1nSKhDow&oe=6709DC41" alt="Image 4"></div>
+             <div class="slide"><img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/461998067_533055442807153_2399291974528298476_n.jpg?stp=dst-jpg_p526x395&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG7jT7uwhBde7GZ-q79jX7TAnVBtVPY-D8CdUG1U9j4P32Kk7n2qjKhCKRdqdTdKq9YnfB8zLzYCR15A3YVtuX1&_nc_ohc=oX2exs7Ztg4Q7kNvgEo2axY&_nc_ht=scontent.fceb2-1.fna&_nc_gid=AdT7TGjSOl-7ELcktWcRLZK&oh=00_AYCq5oabxB5h5Kcvh2q2ShUyBe4I-R7Ud5Twnm1nSKhDow&oe=6709DC41" alt="Image 5"></div>
+        </div>
+       </div>
+       
+     
+              
+           
+        </div>
+        
+         
+  </div>
+</div>
+           
+                  
+              <div class="collapsible"></div>
+<div class="content"></div>
+<!--  -->
+            </div>
+   <!-- login section -->
+   
+            
+        </aside>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <img src="img/schoollogo.png" style="width:10%" alt="">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Colleges</h4>
+      <ul>
+          <li> College of Criminologist</li>
+          <li> College of Law</li>
+          <li> College of Education</li>
+          <li> College of Business and Office Administration</li>
+      </ul>
+      
+    </div>
+    <div class="footer-section">
+      <h4>Contact Information</h4>
+      <ul>
+        <li>Email: Leytecollegessample@gmail.com</li>
+        <li>Phone: +1 123-456-7890</li>      
+      </ul>
+      </div>
+      
+       <div class="footer-section">
+      <h4> Location</h4>
+      <ul>
+          <li> San Jose, Tacloban City</li>
+          <li> Paterno St. Tacloban City</li>
+          <li> Sta. Cruz St. Tacloban City</li>
+      </ul>
+      </div>
+      
+       <div class="footer-section">
+      <h4> About Us</h4>
+      <ul>
+          <li><a href="aboutus.html"> Leyte Colleges</a></li>
+      </ul>
+      
+      
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul class="social-media">
+        <li><a href="#">Leyte Times</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; Leyte Colleges. All rights reserved.</p>
+  </div>
+</footer>
+
+    </footer>
+
+    <!-- Script -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>
+        const menuBtn = document.getElementById("menuToggle");
+const menuContainer = document.querySelector(".hamburger-menu-container");
+
+menuBtn.addEventListener("click", function () {
+  // Toggle menu content visibility
+  menuContainer.classList.toggle("menu-open");
+  
+  // Change hamburger button appearance
+  menuBtn.classList.toggle("change");
+});
+
+const collapsible = document.querySelector('.collapsible');
+const content = document.querySelector('.content');
+
+collapsible.addEventListener('click', function () {
+    if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        content.style.padding = "0 18px";
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.padding = "18px";
+    }
+});
+
+const button = document.querySelector('.button');
+const modal = document.querySelector('.modal');
+const closeButton = document.querySelector('.close-button');
+
+button.addEventListener('click', function () {
+    modal.classList.add('show'); // Show the modal
+    const modalContent = modal.querySelector('.modal-content');
+    modalContent.classList.add('show'); // Show content with transition
+});
+
+closeButton.addEventListener('click', function () {
+    modal.classList.remove('show'); // Hide the modal
+    const modalContent = modal.querySelector('.modal-content');
+    modalContent.classList.remove('show'); // Hide content with transition
+});
+
+// Close modal when clicking outside the content
+modal.addEventListener('click', function (event) {
+    if (event.target === modal) {
+        modal.classList.remove('show');
+        const modalContent = modal.querySelector('.modal-content');
+        modalContent.classList.remove('show');
+    }
+});
+
+    </script>
+    <script>
+        // Define an array of content items with their titles and URLs
+const contentItems = [
+    { title: "Home", url: "home.html" },
+    { title: "About Us", url: "aboutus.html" },
+    { title: "Log in", url: "index.html" },
+    { title: "Student Portal", url: "index.html" },
+    { title: "Admission", url: "admission.html" },
+    { title: "Academics", url: "academics.html" },
+    { title: "Enrollment Form", url: "olform.html" },
+     { title: "Download Enrollment Form", url: "formdl.html" }
+    
+];
+
+// Function to search and display content
+function searchContent() {
+    let filter = document.getElementById('searchBar').value.toLowerCase();
+    let contentContainer = document.getElementById('content');
+
+    // If the search bar is empty, hide the content container and return early
+    if (filter.trim() === '') {
+        contentContainer.style.display = 'none';
+        return;
+    }
+
+    // Clear previous search results
+    contentContainer.innerHTML = '';
+
+    // Filter content items based on search term
+    let filteredItems = contentItems.filter(item => item.title.toLowerCase().includes(filter));
+
+    if (filteredItems.length > 0) {
+        contentContainer.style.display = 'block'; // Show the content container
+
+        // Dynamically create and append matching items
+        filteredItems.forEach(item => {
+            let div = document.createElement('div');
+            div.className = 'item';
+            div.textContent = item.title;
+            div.setAttribute('data-url', item.url);
+
+            // Add click event to navigate to the corresponding page
+            div.addEventListener('click', function () {
+                window.location.href = item.url;
+            });
+
+            contentContainer.appendChild(div);
+        });
+    } else {
+        contentContainer.style.display = 'none'; // Hide the content container if no match is found
+    }
+}
+
+// Trigger search on button click
+document.getElementById('searchButton').addEventListener('click', searchContent);
+
+    </script>
     
 </body>
 </html>
